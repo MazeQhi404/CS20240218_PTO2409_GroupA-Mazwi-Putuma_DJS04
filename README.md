@@ -1,90 +1,99 @@
 # DSJ04 React Podcast App: Search, Sort, Filter, and Pagination
 
-## Project Overview
 
-In this project, you will build an advanced podcast browsing experience that allows users to dynamically **search**, **sort**, **filter**, and **paginate** a list of podcast shows. The goal is to create an intuitive interface that responds to user input in real time and maintains a consistent, seamless experience throughout navigation.
+# Project Overview
 
-This project will test your ability to manage complex UI state, synchronise multiple user interactions, and maintain clean, scalable code.
+The DSJ04 React Podcast App is a dynamic web application that allows users to browse, search, sort, and filter podcasts fetched from an external API. Built with React and Vite, the app provides a responsive and intuitive interface for discovering podcasts by title, genre, and update date, with pagination for manageable browsing. The project demonstrates advanced state management, real-time updates, and modular code design.
 
-## Core Objectives
+# Key Features: 🗝🖤
 
-### Search Functionality
+Search: Find podcasts by typing keywords in the search bar (matches any part of the title).
+Sort: Order podcasts by newest first, title A-Z, or title Z-A.
+Filter: Select one or more genres to narrow down the podcast list.
+Pagination: Browse podcasts in chunks of 10 per page with navigation controls.
+Responsive Design: Adapts to mobile, tablet, and desktop screens.
 
-- Implement a flexible search that matches any part of the podcast title.
-- Results should update dynamically as the user types or upon submission.
-- Ensure that search results integrate with current filters, sorts, and pagination without resetting them.
+# 🌸Setup Instructions
 
-### Sorting Options
+To set up and run the project locally, follow these steps:
 
-- Allow sorting podcasts by:
-  - Newest first (based on last updated date).
-  - Title A–Z and Z–A.
-- Sorting must work in tandem with any search or filter criteria.
+1. Install Dependencies: Ensure Node.js is installed, then run:
 
-### Filtering
+npm install
 
-- Enable genre-based filtering using a dropdown or multi-select input.
-- Ensure filters work alongside current search, sort, and pagination state.
-- Maintain selected filters when navigating between pages or updating the list.
+2. Start the Development Server:
 
-### Pagination
+npm run dev
 
-- Display podcasts in manageable chunks using pagination, load-more, or infinite scroll.
-- Ensure that pagination respects the currently active search, filter, and sort state.
-- Keep all UI selections intact while navigating pages.
+3. Open http://localhost:5173 in your browser to view the app.
 
-### State Synchronisation
 
-- Maintain a centralised and cleanly organised state using React state, context, or a state management library.
-- Ensure that all controls (search, sort, filter, pagination) reflect changes immediately and stay in sync.
 
-### Code Quality & Maintainability
+# Project Structure:
 
-- Use JSDoc to document all major functions and modules.
-- Apply consistent formatting and naming conventions.
-- Keep logic modular and components reusable.
+index.html: Entry point for the app.
 
-### API Endpoints
+src/main.jsx: Renders the main App component.
 
-Data can be called via a `fetch` request to the following endpoint.
+src/App.jsx: Core logic for fetching data and handling search, sort, filter, and pagination.
 
-| URL                               |                             |
-| --------------------------------- | --------------------------- |
-| `https://podcast-api.netlify.app` | Returns an array of PREVIEW |
+src/App.css: Styles with responsive media queries.
 
-### Genre Titles
+src/data.js: Genre mapping data for filtering.
 
-Since the podcast preview information fetched from the API only exposes genres by their IDs, the actual genre details (such as titles) are not included in the API response. These details are instead provided in the data.js file found in this repository. Therefore, it is recommended that you include the mapping between genre ID values and their corresponding titles in your code using this file.
+.gitignore: Excludes unnecessary files like node_modules and dist.
 
-## Project Deliverables
+Usage Instructions
 
-- A fully functional React app that:
+The app provides an interactive interface to explore podcasts using JavaScript-driven functionality. Below is how to interact with each feature:
 
-  - Fetches and displays podcast data.
-  - Allows live searching, sorting, filtering, and pagination.
-  - Maintains consistent state across all UI interactions.
+🔎 Search:
 
-- **Clean Codebase** with:
+Location: Top text input labeled “Search podcasts by title...”.
 
-  - Reusable, modular components.
-  - Clear and consistent formatting across all files.
-  - JSDoc comments for functions/modules.
+How to Use: Type a keyword (e.g., “History”) to filter podcasts whose titles contain the keyword (case-insensitive).
+Behavior: Results update in real-time as you type, and pagination resets to page 1.
 
-- **README.md** with:
+🧺 Sort
 
-  - Project overview and purpose.
-  - Setup and usage instructions.
-  - Descriptions of key features (search, filter, sort, pagination).
+Location: Dropdown menu labeled “Sort by” with options: “Newest First,” “Title A-Z,” and “Title Z-A”.
 
-- **Version Control (GitHub)**:
-  - Clear, meaningful commit messages.
-  - Incremental commits reflecting development progress.
+How to Use: Select an option to reorder the podcast list.
 
-## Success Criteria
+Behavior: Sorting applies immediately, works with search and filter states, and resets pagination to page 1.
 
-- No console errors or broken UI on load.
-- All features work correctly and together without losing state.
-- Clean, maintainable codebase with documentation.
-- A polished user experience with responsive layout and real-time updates.
+📍Filter by Genre
 
----
+Location: Checkbox list under “Filter by Genre” (e.g., “Personal Growth,” “Comedy”).
+
+How to Use: Check one or more genres to show only podcasts associated with those genres. Uncheck to remove filters.
+
+Behavior: Filtering updates the podcast list instantly, preserves search and sort states, and resets pagination to page 1.
+
+📄 Pagination
+
+Location: Navigation buttons (“Previous,” page numbers, “Next”) below the podcast grid.
+
+How to Use: Click page numbers to jump to a specific page or use “Previous”/“Next” to navigate.
+
+Behavior: Displays 10 podcasts per page, maintains search, sort, and filter states, and scrolls to the top on page change.
+
+🗒 Additional Notes
+
+Loading State: A “Loading...” message appears while fetching data.
+
+Error Handling: Displays an error message if the API fails.
+
+No Results: Shows “No podcasts found” if no podcasts match the criteria.
+
+Responsive Layout: The podcast grid adjusts to 1 column (mobile), 2 columns (tablet), or 3 columns (desktop).
+
+🛠 Development Notes
+
+API: Fetches podcast data from https://podcast-api.netlify.app.
+
+
+Genre Data: Uses data.js for mapping genre IDs to titles.
+
+Code Quality: Includes JSDoc comments, modular components (e.g., PodcastCard), and responsive CSS with media queries.
+
