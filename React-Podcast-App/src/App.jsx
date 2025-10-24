@@ -41,7 +41,7 @@ function App() {
   const [error, setError] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [sortOption, setSortOption] = useState('newest');
-  const [SelectedGenres, setSelectedGenres] = useState([]);
+  const [selectedGenres, setSelectedGenres] = useState([]);
   const [currentPage, setCurrentPage] = useState([]);
   const podcastsPerPage = 10;
 
@@ -112,16 +112,16 @@ function App() {
 
     if (searchTerm) {
       filtered = filtered.filter((podcast) => 
-        podcast.title.toLowercase().includes(searchTerm.toLowerCase())
+        podcast.title.toLowerCase().includes(searchTerm.toLowerCase())
       );
     }
     
     //Apply sort
     return [...filtered].sort((a, b) => {
       if (sortOption === 'title-asc') {
-        return a.title.localCompare(b.title);
+        return a.title.localeCompare(b.title);
       } else if (sortOption === 'title-desc') {
-        return b.title.localCompare(a.title);
+        return b.title.localeCompare(a.title);
       } else {
         return new Date(b.updated) - new Date(a.updated); // Newest first
         }
